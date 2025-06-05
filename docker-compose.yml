@@ -1,0 +1,54 @@
+version: '3.8'
+
+networks:
+  dmz-net:
+  int-net:
+
+services:
+  web-server:
+    build:
+      context: ./data/web
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - dmz-net
+      - int-net
+    depends_on:
+      - api-server
+    volumes:
+      - uploads:/var/www/html/uploads
+    environment:
+      - API_SERVER_URL=http://api-server:8081
+
+  api-server:
+    build:
+      context: ./data/api
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - int-net
+    depends_on:
+      - db-server
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@db-server:1521:XE
+      - SPRING_DATASOURCE_USERNAME=system
+      - SPRING_DATASOURCE_PASSWORD=oracle
+    volumes:
+      - uploads:/tmp/uploads
+
+  db-server:
+    build:
+      context: ./data/db
+      dockerfile: Dockerfile
+    ports:
+      - "1521:1521"
+    networks:
+      - int-net
+    volumes:
+      - oracle_data:/u01/app/oracle
+
+volumes:
+  oracle_data:
+  uploads: 

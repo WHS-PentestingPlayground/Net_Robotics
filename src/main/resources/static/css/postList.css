@@ -1,0 +1,124 @@
+.board-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.board-title {
+    font-size: 2rem;
+    color: #343a40;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.board-title::before {
+    content: "🤖";
+    font-size: 2.2rem;
+    color: #007bff;
+}
+
+.new-post-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.new-post-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.25);
+}
+
+.new-post-btn::before {
+    content: "✏️";
+    font-size: 1.1rem;
+}
+
+.post-list {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.post-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e9ecef;
+}
+
+.post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.post-title {
+    color: #343a40;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.post-title:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.post-author::before {
+    content: "👤";
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 3rem;
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.empty-message::before {
+    content: "🤖";
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1.2rem;
+    color: #ced4da;
+} 

@@ -1,0 +1,87 @@
+.header {
+    background-color: #2c3e50;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.header-logo-emoji {
+    font-size: 1.5rem;
+}
+
+.header-logo-text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.header-main-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.header-menu-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+.header-menu-link:hover {
+    opacity: 0.8;
+}
+
+.header-user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-username {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.header-user-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.header-user-link:hover {
+    opacity: 0.8;
+}
+
+.header-logout-form {
+    margin: 0;
+}
+
+.header-logout-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s;
+}
+
+.header-logout-btn:hover {
+    opacity: 0.8;
+} 

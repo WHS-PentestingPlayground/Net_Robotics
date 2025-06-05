@@ -1,0 +1,24 @@
+-- 사용자 테이블
+CREATE TABLE users (
+    id NUMBER PRIMARY KEY,
+    username VARCHAR2(50) UNIQUE NOT NULL,
+    password VARCHAR2(100) NOT NULL,
+    email VARCHAR2(100),
+    created_at TIMESTAMP DEFAULT SYSDATE,
+    updated_at TIMESTAMP DEFAULT SYSDATE
+);
+
+-- 게시글 테이블
+CREATE TABLE posts (
+    id NUMBER PRIMARY KEY,
+    title VARCHAR2(200) NOT NULL,
+    content CLOB,
+    user_id NUMBER,
+    created_at TIMESTAMP DEFAULT SYSDATE,
+    updated_at TIMESTAMP DEFAULT SYSDATE,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- 시퀀스 생성
+CREATE SEQUENCE user_seq START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE post_seq START WITH 1 INCREMENT BY 1; 
