@@ -26,6 +26,7 @@ public class Post extends BaseEntity {
 
     @Column(nullable = true)
     private String fileName;  // 첨부 파일 이름
+    private String originalFileName; // 원래 파일명
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -37,4 +38,9 @@ public class Post extends BaseEntity {
     // 공지사항 여부 필드 추가
     @Column(nullable = false)
     private boolean notice = false;
+
+
+
+
 }
+

@@ -1,0 +1,89 @@
+.post-detail-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.post-detail-header {
+    margin-bottom: 1rem;
+}
+
+.post-detail-title {
+    font-size: 2rem;
+    color: #343a40;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.post-detail-title::before {
+    content: "🤖";
+    font-size: 2.2rem;
+    color: #007bff;
+}
+
+.post-detail-meta {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.post-detail-meta .post-detail-author::before {
+    content: "👤";
+    margin-right: 0.4rem;
+}
+
+.post-detail-content {
+    color: #343a40;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    white-space: pre-line;
+}
+
+.post-detail-file {
+    margin-bottom: 2rem;
+}
+
+.post-detail-file a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.post-detail-file a:hover {
+    text-decoration: underline;
+}
+
+.post-detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.post-detail-actions button,
+.post-detail-actions a {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.post-detail-actions .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.post-detail-actions .delete-btn:hover {
+    background-color: #bb2d3b;
+}
+
+.post-detail-actions .edit-b

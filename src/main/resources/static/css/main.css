@@ -314,6 +314,7 @@ select.form-input {
     text-decoration: underline;
 }
 
+
 /* post.jsp 분리 스타일 */
 .container-post { max-width: 800px; margin: 2rem auto; }
 .card-post { padding: 2rem; }

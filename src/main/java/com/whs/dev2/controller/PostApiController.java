@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -28,35 +29,46 @@ public class PostApiController {
         return ResponseEntity.ok(postService.getPost(id));
     }
 
-    @PostMapping
-    public ResponseEntity<?> createPost(@RequestBody PostRequestDto dto, HttpSession session) {
+    @PostMapping(consumes = "multipart/form-data") // 🔥 중요: JSON → multipart/form-data
+    public ResponseEntity<?> createPost(
+            @RequestPart("title") String title,
+            @RequestPart("content") String content,
+            @RequestPart(value = "file", required = false) MultipartFile file,
+            HttpSession session) {
+
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(401).body("로그인이 필요합니다.");
         }
-        postService.createPost(dto, user);
-        return ResponseEntity.ok().build();
+
+        PostRequestDto dto = new PostRequestDto();
+        dto.setTitle(title);
+        dto.setContent(content);
+        dto.setAuthor(user.getUsername());
+
+        postService.createPost(dto, user, file);
+        return ResponseEntity.ok("게시글이 등록되었습니다.");
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updatePost(@PathVariable Long id, 
-                                      @RequestBody PostRequestDto dto,
-                                      HttpSession session) {
+    public ResponseEntity<?> updatePost(@PathVariable Long id,
+                                        @RequestBody PostRequestDto dto,
+                                        HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(401).body("로그인이 필요합니다.");
         }
-        postService.updatePost(id, dto, user);
-        return ResponseEntity.ok().build();
+        postService.updatePost(id, dto, user,null);
+        return ResponseEntity.ok("게시글이 수정되었습니다.");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePost(@PathVariable Long id, HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user == null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(401).body("로그인이 필요합니다.");
         }
         postService.deletePost(id, user);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("게시글이 삭제되었습니다.");
     }
 }

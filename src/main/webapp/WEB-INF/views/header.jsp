@@ -1,5 +1,5 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
 
 <header class="header">
     <nav class="header-nav">
@@ -10,10 +10,12 @@
                 <span class="header-logo-text">WH 화햇로보틱스</span>
             </a>
         </div>
+
         <!-- 가운데: 메인 메뉴 -->
         <div class="header-main-menu">
             <a href="/board/posts" class="header-menu-link">게시판</a>
         </div>
+
         <!-- 오른쪽: 유저 메뉴 -->
         <div class="header-user-menu">
             <c:choose>
@@ -32,4 +34,4 @@
             </c:choose>
         </div>
     </nav>
-</header> 
+</header>
